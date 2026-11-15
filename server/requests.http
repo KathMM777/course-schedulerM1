@@ -1,5 +1,40 @@
-### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=WebStorm
+### Get all courses (expect 200)
+GET http://localhost:3000/api/courses
 
-###
+### Get one course (expect 200)
+GET http://localhost:3000/api/courses/7
+
+### Get a course that doesn't exist (expect 404)
+GET http://localhost:3000/api/courses/999
+
+### Create a course (expect 201)
+POST http://localhost:3000/api/courses
+Content-Type: application/json
+
+{ "number": "CSC4600", "title": "Cloud Computing", "credits": 3,
+  "description": "Test course", "prerequisites": [5, 9] }
+
+### Create with missing fields (expect 400)
+POST http://localhost:3000/api/courses
+Content-Type: application/json
+
+{ "title": "No number or credits" }
+
+### Delete the test course (expect 200; change 11 to the new course's real id)
+DELETE http://localhost:3000/api/courses/11
+
+### Delete a course that doesn't exist (expect 404)
+DELETE http://localhost:3000/api/courses/999
+
+### Update a course that doesn't exist (expect 404)
+PUT http://localhost:3000/api/courses/999
+Content-Type: application/json
+
+{ "number": "CSC9999", "title": "Nope", "credits": 3, "description": "x", "prerequisites": [] }
+
+### Restore CSC3700 to its seed data (expect 200, prerequisites [3]) -- run right after the update above
+PUT http://localhost:3000/api/courses/7
+Content-Type: application/json
+
+{ "number": "CSC3700", "title": "Advanced Web Application Development", "credits": 3,
+  "description": "React, Node/Express, MySQL, JWT authentication. Full-stack web development.", "prerequisites": [3] }
