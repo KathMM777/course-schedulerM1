@@ -38,3 +38,18 @@ Content-Type: application/json
 
 { "number": "CSC3700", "title": "Advanced Web Application Development", "credits": 3,
   "description": "React, Node/Express, MySQL, JWT authentication. Full-stack web development.", "prerequisites": [3] }
+
+### Reject a completion list that is missing a prerequisite
+PUT http://localhost:3000/api/completions
+Content-Type: application/json
+
+[3]
+
+### Save a valid completion list (expect 200)
+PUT http://localhost:3000/api/completions
+Content-Type: application/json
+
+[1, 3]
+
+### Get saved completions (expect 200)
+GET http://localhost:3000/api/completions

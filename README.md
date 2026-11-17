@@ -1,9 +1,49 @@
 # Aurora CS Course Scheduler
 
+**Milestone 2 — Version 2.0.0**  
+**Authors:** Katherine Maya and Karen Segura
+
+The app displays the CS Developer Track catalog, shows which courses are available based on prerequisites, and saves completed courses to MySQL.
+
 ## How to run
-1. Open the terminal in the project's root folder 
-2. Install all the dependencies with `npm install` 
-3. Create `.env` in the project root with the following line: `VITE_API_BASE_URL=http://localhost:3333`
-4. In one terminal, start JSON Server with: `npx json-server --watch db/db.json --port 3333`
-5. In a second terminal, start the app with: `npm run dev`
-6. Finally, open http://localhost:5173 in your browser
+
+You’ll need Node.js, npm, and access to the team’s MySQL database.
+
+### 1. Configure the environment
+
+Create a `.env` file in the project root, next to `package.json`, with:
+
+```env
+VITE_API_BASE_URL=http://localhost:3000
+```
+
+Copy `server/.env.example` to `server/.env`. Fill in `DB_HOST`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME` with the team’s database settings. For local development, keep `PORT=3000` and `CLIENT_ORIGIN=http://localhost:5173`.
+
+Keep real database credentials only in `server/.env`. Do not commit that file.
+
+### 2. Start Express (terminal 1)
+
+From the project root, run:
+
+```powershell
+cd server
+npm install
+npm run dev
+```
+
+The API runs at [http://localhost:3000](http://localhost:3000). Keep this terminal open.
+
+### 3. Start React (terminal 2)
+
+Open a second terminal in the project root and run:
+
+```powershell
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### 4. Verify that progress saves
+
+Mark an available course as completed, click **Save**, and refresh the page. The course should still be marked. You can also check the saved IDs at [http://localhost:3000/api/completions](http://localhost:3000/api/completions).

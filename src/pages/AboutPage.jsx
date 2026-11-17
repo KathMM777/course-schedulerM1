@@ -15,7 +15,7 @@ function AboutPage() {
                     <dt className="col-sm-3">Date</dt>
                     <dd className="col-sm-9">{currentDate}</dd>
                     <dt className="col-sm-3">Version</dt>
-                    <dd className="col-sm-9">1.0.0</dd>
+                    <dd className="col-sm-9">2.0.0</dd>
                 </dl>
             </div>
         </div>

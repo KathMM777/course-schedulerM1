@@ -21,7 +21,7 @@ function ProgressSummary({ courses, completed }) {
         <div className="alert alert-info">
             <h2 className="h5">Progress Summary</h2>
             <p className="mb-0">
-                Completed: {completedCount} | Available: {availableCount} |
+                Completed: {completedCount} of {courses.length} | Available: {availableCount} |
                 {' '}Locked: {lockedCount}
             </p>
         </div>
