@@ -24,6 +24,12 @@ function ProgressSummary({ courses, completed }) {
                 Completed: {completedCount} of {courses.length} | Available: {availableCount} |
                 {' '}Locked: {lockedCount}
             </p>
+            <progress
+                className="w-100 mt-2"
+                value={completedCount}
+                max={courses.length || 1}
+                aria-label="Course completion progress"
+            />
         </div>
     );
 }
