@@ -32,7 +32,7 @@ Content-Type: application/json
 
 { "number": "CSC9999", "title": "Nope", "credits": 3, "description": "x", "prerequisites": [] }
 
-### Restore CSC3700 to its seed data (expect 200, prerequisites [3]) -- run right after the update above
+### Update CSC3700 with its original data (expect 200, prerequisites [3])
 PUT http://localhost:3000/api/courses/7
 Content-Type: application/json
 
